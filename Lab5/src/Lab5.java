@@ -65,22 +65,19 @@ public class Lab5 extends GLJPanel implements GLEventListener, KeyListener{
         if(objectNumber==1)//spirala
         {
 
-            gl2.glLineWidth(2);
-            gl2.glBegin(GL2.GL_LINE_STRIP);
-
-            float x, y, z,distance = 0.5f;
-            z=-10.0f;
             
-            for (float i = 0.0f; i<= (Math.PI * 2f * N); i += distance)
+            
+            gl2.glColor3f(5, 1, 0);
+            gl2.glBegin(GL2.GL_LINE_STRIP);
+            double x,y;
+            var angle=2*Math.PI /36;
+            for(float i=1;i<=15*36;i++)
             {
-            	
-                x = (float) Math.sin(i) * 5;
-                y = (float) Math.cos(i) * 5;
-                z += 0.2;
-                gl2.glColor3f(15.0f, 1.0f, 0.0f);
-                gl2.glVertex3f(x, y, z);
-                
+            	x=Math.cos(angle*i);
+            	y=Math.sin(angle*i);
+            	gl2.glVertex3d(x*(0.02*i), y*(0.02*i), (i/36));
             }
+           
             gl2.glEnd();
         }
 
